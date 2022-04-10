@@ -11,12 +11,18 @@ class MessageViewModel {
 	
 	var message: String? {
 		get {
-			self.message
+			self.message?.trimmingCharacters(in: .whitespacesAndNewlines)
 		}
 		set {
-			self.message = newValue?.trimmingCharacters(in: .whitespacesAndNewlines)
+			self.message = newValue
 		}
 	}
 	var date: Date?
-	var sender: SideEnum?
+	var sender: Sender?
+	
+	init(with message: String, sender: Sender) {
+		self.message = message
+		self.sender = sender
+		date = Date()
+	}
 }
