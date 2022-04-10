@@ -9,19 +9,12 @@ import Foundation
 
 class MessageViewModel {
 	
-	var message: String? {
-		get {
-			self.message?.trimmingCharacters(in: .whitespacesAndNewlines)
-		}
-		set {
-			self.message = newValue
-		}
-	}
-	var date: Date?
-	var sender: Sender?
+	var message: String
+	var date: Date
+	var sender: Sender
 	
 	init(with message: String, sender: Sender) {
-		self.message = message
+		self.message = message.trimmingCharacters(in: .whitespacesAndNewlines)
 		self.sender = sender
 		date = Date()
 	}

@@ -22,16 +22,18 @@ class MessageTableViewCell: UITableViewCell, ReuseIdentifierProtocol {
 	@IBOutlet private weak var serverMessageLabel: UILabel!
 	@IBOutlet private weak var clientMessageLabel: UILabel!
 	
-	func show(message: String, for side: SideEnum) {
-		switch side {
+	func configure(with messageViewModel: MessageViewModel) {
+		switch messageViewModel.sender {
 		case .server:
 			clientMessageView.isHidden = true
 			serverMessageView.isHidden = false
-			serverMessageLabel.text = message
+			serverMessageLabel.text = messageViewModel.message
 		case .client:
 			clientMessageView.isHidden = false
 			serverMessageView.isHidden = true
-			clientMessageLabel.text = message
+			clientMessageLabel.text = messageViewModel.message
+		default:
+			break
 		}
 	}
 	
