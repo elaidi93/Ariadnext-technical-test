@@ -23,6 +23,7 @@
 		397535D928033CA400060743 /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397535D828033CA400060743 /* MessageViewModel.swift */; };
 		397535DD2803520C00060743 /* ServerResponseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397535DC2803520C00060743 /* ServerResponseManager.swift */; };
 		397535DF28035A2200060743 /* ServerResponseEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397535DE28035A2200060743 /* ServerResponseEnum.swift */; };
+		397535E3280390EC00060743 /* MessageViewModalTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397535E2280390EC00060743 /* MessageViewModalTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		397535D828033CA400060743 /* MessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewModel.swift; sourceTree = "<group>"; };
 		397535DC2803520C00060743 /* ServerResponseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerResponseManager.swift; sourceTree = "<group>"; };
 		397535DE28035A2200060743 /* ServerResponseEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerResponseEnum.swift; sourceTree = "<group>"; };
+		397535E2280390EC00060743 /* MessageViewModalTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageViewModalTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 		396232112803057B00B78A49 /* Ariadnext-technical-testTests */ = {
 			isa = PBXGroup;
 			children = (
+				397535E2280390EC00060743 /* MessageViewModalTest.swift */,
 				396232122803057B00B78A49 /* Ariadnext_technical_testTests.swift */,
 			);
 			path = "Ariadnext-technical-testTests";
@@ -368,6 +371,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				397535E3280390EC00060743 /* MessageViewModalTest.swift in Sources */,
 				396232132803057B00B78A49 /* Ariadnext_technical_testTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
