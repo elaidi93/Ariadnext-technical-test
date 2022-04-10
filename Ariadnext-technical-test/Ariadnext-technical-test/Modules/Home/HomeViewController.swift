@@ -8,12 +8,76 @@
 import UIKit
 
 class HomeViewController: UIViewController {
-
+	
+	@IBOutlet private weak var tableView: UITableView! {
+		didSet {
+			tableView.delegate = self
+			tableView.dataSource = self
+			tableView.register(UINib(nibName: MessageTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: MessageTableViewCell.reuseIdentifier)
+		}
+	}
+	
+	@IBOutlet private weak var inputBottom: NSLayoutConstraint!
+	@IBOutlet private weak var messageText: UITextField!
+	
+	private var messages = [String]()
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		print("home")
+		registerKeyboardNotifications()
 	}
 
+	func registerKeyboardNotifications() {
+		NotificationCenter.default.addObserver(self,
+											   selector: #selector(keyboardWillShow(_:)),
+											   name: UIResponder.keyboardWillShowNotification,
+											   object: nil)
+	 
+		NotificationCenter.default.addObserver(self,
+											   selector: #selector(keyboardWillHide(_:)),
+											   name: UIResponder.keyboardWillHideNotification,
+											   object: nil)
+	}
+	
+	@objc
+	func keyboardWillShow(_ sender: NSNotification) {
+		guard let info = sender.userInfo,
+			  let keyboardSize = (info[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height
+		else { return }
 
+		inputBottom.constant = keyboardSize
+		if messages.count > 0 {
+			tableView.scrollToRow(at: IndexPath(row: messages.count - 1, section: 0), at: .bottom, animated: true)
+		}
+	}
+
+	@objc
+	func keyboardWillHide(_ sender: NSNotification) {
+		inputBottom.constant = 0
+		if messages.count > 0 {
+			tableView.scrollToRow(at: IndexPath(row: messages.count - 1, section: 0), at: .bottom, animated: true)
+		}
+	}
+	
+	@IBAction private func send() {
+		guard let text = messageText.text
+		else { return }
+		messages.append(text)
+		tableView.reloadData()
+		messageText.text = nil
+	}
 }
 
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+	
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return messages.count
+	}
+	
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		guard let cell = tableView.dequeueReusableCell(withIdentifier: MessageTableViewCell.reuseIdentifier) as? MessageTableViewCell
+		else { return UITableViewCell() }
+		cell.show(message: messages[indexPath.row], for: SideEnum.allCases.randomElement() ?? .client)
+		return cell
+	}
+}
