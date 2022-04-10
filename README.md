@@ -11,6 +11,12 @@ iOS developer technical Interview for ARIADNEXT company
 > 
 > Apply good practices
 
+## Interface
+
+<p align="center">
+  <a href="https://github.com/elaidi93/Ariadnext-technical-test/blob/develop/img/IMG_520250236583-1.jpeg"><img alt="ios" src="https://github.com/elaidi93/Ariadnext-technical-test/blob/develop/img/IMG_520250236583-1.jpeg"/></a>
+</p>
+
 ## Architecture 
 
 I used an MVVM architecture for my application. 
