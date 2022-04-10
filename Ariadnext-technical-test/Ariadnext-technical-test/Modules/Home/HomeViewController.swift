@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class HomeViewController: UIViewController {
 	
@@ -21,10 +22,15 @@ class HomeViewController: UIViewController {
 	@IBOutlet private weak var messageText: UITextField!
 	
 	private var messages = [MessageViewModel]()
+	private var observers = Set<AnyCancellable>()
+	
+	var serverResponseManager: ServerResponseManager?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		registerKeyboardNotifications()
+		messages.append(MessageViewModel(with: ServerResponse.bonjour.rawValue, sender: .server))
+		tableView.reloadData()
 	}
 
 	func registerKeyboardNotifications() {
@@ -65,6 +71,17 @@ class HomeViewController: UIViewController {
 		messages.append(MessageViewModel(with: text, sender: .client))
 		tableView.reloadData()
 		messageText.text = nil
+		getServerResponse()
+	}
+	
+	private func getServerResponse() {
+		serverResponseManager?.getResponse()
+		serverResponseManager?.serverResponse.sink { serverResponse in
+			guard let serverResponse = serverResponse
+			else { return }
+			self.messages.append(serverResponse)
+			self.tableView.reloadData()
+		}.store(in: &observers)
 	}
 }
 

@@ -21,6 +21,8 @@
 		397535D12803381400060743 /* MessageSenderEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397535D02803381400060743 /* MessageSenderEnum.swift */; };
 		397535D728033A1B00060743 /* UIView+ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397535D628033A1B00060743 /* UIView+ReuseIdentifier.swift */; };
 		397535D928033CA400060743 /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397535D828033CA400060743 /* MessageViewModel.swift */; };
+		397535DD2803520C00060743 /* ServerResponseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397535DC2803520C00060743 /* ServerResponseManager.swift */; };
+		397535DF28035A2200060743 /* ServerResponseEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397535DE28035A2200060743 /* ServerResponseEnum.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		397535D02803381400060743 /* MessageSenderEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSenderEnum.swift; sourceTree = "<group>"; };
 		397535D628033A1B00060743 /* UIView+ReuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ReuseIdentifier.swift"; sourceTree = "<group>"; };
 		397535D828033CA400060743 /* MessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewModel.swift; sourceTree = "<group>"; };
+		397535DC2803520C00060743 /* ServerResponseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerResponseManager.swift; sourceTree = "<group>"; };
+		397535DE28035A2200060743 /* ServerResponseEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerResponseEnum.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +113,7 @@
 		396231FA2803057A00B78A49 /* Ariadnext-technical-test */ = {
 			isa = PBXGroup;
 			children = (
+				397535DB280351FB00060743 /* Manager */,
 				3962322B2803174600B78A49 /* App */,
 				3962322D2803177700B78A49 /* Modules */,
 				397535DA28033DB700060743 /* ViewModels */,
@@ -186,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				397535D02803381400060743 /* MessageSenderEnum.swift */,
+				397535DE28035A2200060743 /* ServerResponseEnum.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -204,6 +210,14 @@
 				397535D828033CA400060743 /* MessageViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		397535DB280351FB00060743 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				397535DC2803520C00060743 /* ServerResponseManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,10 +355,12 @@
 				397535D728033A1B00060743 /* UIView+ReuseIdentifier.swift in Sources */,
 				396232002803057A00B78A49 /* HomeViewController.swift in Sources */,
 				397535D12803381400060743 /* MessageSenderEnum.swift in Sources */,
+				397535DF28035A2200060743 /* ServerResponseEnum.swift in Sources */,
 				397535CB280330BE00060743 /* MessageTableViewCell.swift in Sources */,
 				397535D928033CA400060743 /* MessageViewModel.swift in Sources */,
 				396231FC2803057A00B78A49 /* AppDelegate.swift in Sources */,
 				396231FE2803057A00B78A49 /* SceneDelegate.swift in Sources */,
+				397535DD2803520C00060743 /* ServerResponseManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
