@@ -18,7 +18,7 @@
 		3962321F2803057B00B78A49 /* Ariadnext_technical_testUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3962321E2803057B00B78A49 /* Ariadnext_technical_testUITestsLaunchTests.swift */; };
 		397535CB280330BE00060743 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397535CA280330BE00060743 /* MessageTableViewCell.swift */; };
 		397535CE280330F000060743 /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 397535CD280330F000060743 /* MessageTableViewCell.xib */; };
-		397535D12803381400060743 /* MessageSideEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397535D02803381400060743 /* MessageSideEnum.swift */; };
+		397535D12803381400060743 /* MessageSenderEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397535D02803381400060743 /* MessageSenderEnum.swift */; };
 		397535D728033A1B00060743 /* UIView+ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397535D628033A1B00060743 /* UIView+ReuseIdentifier.swift */; };
 		397535D928033CA400060743 /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397535D828033CA400060743 /* MessageViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -56,7 +56,7 @@
 		3962321E2803057B00B78A49 /* Ariadnext_technical_testUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ariadnext_technical_testUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		397535CA280330BE00060743 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
 		397535CD280330F000060743 /* MessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageTableViewCell.xib; sourceTree = "<group>"; };
-		397535D02803381400060743 /* MessageSideEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSideEnum.swift; sourceTree = "<group>"; };
+		397535D02803381400060743 /* MessageSenderEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSenderEnum.swift; sourceTree = "<group>"; };
 		397535D628033A1B00060743 /* UIView+ReuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ReuseIdentifier.swift"; sourceTree = "<group>"; };
 		397535D828033CA400060743 /* MessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -185,7 +185,7 @@
 		397535CF280337F000060743 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
-				397535D02803381400060743 /* MessageSideEnum.swift */,
+				397535D02803381400060743 /* MessageSenderEnum.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -340,7 +340,7 @@
 			files = (
 				397535D728033A1B00060743 /* UIView+ReuseIdentifier.swift in Sources */,
 				396232002803057A00B78A49 /* HomeViewController.swift in Sources */,
-				397535D12803381400060743 /* MessageSideEnum.swift in Sources */,
+				397535D12803381400060743 /* MessageSenderEnum.swift in Sources */,
 				397535CB280330BE00060743 /* MessageTableViewCell.swift in Sources */,
 				397535D928033CA400060743 /* MessageViewModel.swift in Sources */,
 				396231FC2803057A00B78A49 /* AppDelegate.swift in Sources */,

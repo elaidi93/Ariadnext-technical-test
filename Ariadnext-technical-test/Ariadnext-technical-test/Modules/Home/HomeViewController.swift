@@ -20,7 +20,7 @@ class HomeViewController: UIViewController {
 	@IBOutlet private weak var inputBottom: NSLayoutConstraint!
 	@IBOutlet private weak var messageText: UITextField!
 	
-	private var messages = [String]()
+	private var messages = [MessageViewModel]()
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -62,7 +62,7 @@ class HomeViewController: UIViewController {
 	@IBAction private func send() {
 		guard let text = messageText.text
 		else { return }
-		messages.append(text)
+		messages.append(MessageViewModel(with: text, sender: .client))
 		tableView.reloadData()
 		messageText.text = nil
 	}
@@ -77,7 +77,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		guard let cell = tableView.dequeueReusableCell(withIdentifier: MessageTableViewCell.reuseIdentifier) as? MessageTableViewCell
 		else { return UITableViewCell() }
-		cell.show(message: messages[indexPath.row], for: SideEnum.allCases.randomElement() ?? .client)
+		cell.configure(with: messages[indexPath.row])
 		return cell
 	}
 }
