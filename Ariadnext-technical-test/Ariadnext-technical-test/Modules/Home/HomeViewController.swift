@@ -13,10 +13,12 @@ class HomeViewController: UIViewController {
 		didSet {
 			tableView.delegate = self
 			tableView.dataSource = self
+			tableView.register(UINib(nibName: MessageTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: MessageTableViewCell.reuseIdentifier)
 		}
 	}
 	
 	@IBOutlet private weak var inputBottom: NSLayoutConstraint!
+	@IBOutlet private weak var messageText: UITextField!
 	
 	private var messages = [String]()
 	
@@ -39,17 +41,30 @@ class HomeViewController: UIViewController {
 	
 	@objc
 	func keyboardWillShow(_ sender: NSNotification) {
-		let info = sender.userInfo!
-		let keyboardSize = (info[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue.height
+		guard let info = sender.userInfo,
+			  let keyboardSize = (info[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue.height
+		else { return }
 
 		inputBottom.constant = keyboardSize
-		tableView.scrollToRow(at: IndexPath(row: 19, section: 0), at: .bottom, animated: true)
+		if messages.count > 0 {
+			tableView.scrollToRow(at: IndexPath(row: messages.count - 1, section: 0), at: .bottom, animated: true)
+		}
 	}
 
 	@objc
 	func keyboardWillHide(_ sender: NSNotification) {
 		inputBottom.constant = 0
-		tableView.scrollToRow(at: IndexPath(row: 19, section: 0), at: .bottom, animated: true)
+		if messages.count > 0 {
+			tableView.scrollToRow(at: IndexPath(row: messages.count - 1, section: 0), at: .bottom, animated: true)
+		}
+	}
+	
+	@IBAction private func send() {
+		guard let text = messageText.text
+		else { return }
+		messages.append(text)
+		tableView.reloadData()
+		messageText.text = nil
 	}
 }
 
@@ -60,6 +75,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		return UITableViewCell()
+		guard let cell = tableView.dequeueReusableCell(withIdentifier: MessageTableViewCell.reuseIdentifier) as? MessageTableViewCell
+		else { return UITableViewCell() }
+		cell.show(message: messages[indexPath.row], for: SideEnum.allCases.randomElement() ?? .client)
+		return cell
 	}
 }

@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="A0i-NY-gN3">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="A0i-NY-gN3">
                                 <rect key="frame" x="0.0" y="44" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
@@ -35,6 +35,9 @@
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="arrow.up.circle.fill" catalog="system"/>
+                                        <connections>
+                                            <action selector="send" destination="BYZ-38-t0r" eventType="touchUpInside" id="E6q-S5-Ld8"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -56,7 +59,7 @@
                     </view>
                     <connections>
                         <outlet property="inputBottom" destination="jfA-YM-o0b" id="u6c-9K-a6w"/>
-                        <outlet property="messageView" destination="e0c-q5-oMR" id="8xw-AK-0AZ"/>
+                        <outlet property="messageText" destination="4uD-aS-bkg" id="Gqm-5X-rRc"/>
                         <outlet property="tableView" destination="A0i-NY-gN3" id="iQ4-Iw-RQy"/>
                     </connections>
                 </viewController>

@@ -16,6 +16,11 @@
 		396232132803057B00B78A49 /* Ariadnext_technical_testTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 396232122803057B00B78A49 /* Ariadnext_technical_testTests.swift */; };
 		3962321D2803057B00B78A49 /* Ariadnext_technical_testUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3962321C2803057B00B78A49 /* Ariadnext_technical_testUITests.swift */; };
 		3962321F2803057B00B78A49 /* Ariadnext_technical_testUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3962321E2803057B00B78A49 /* Ariadnext_technical_testUITestsLaunchTests.swift */; };
+		397535CB280330BE00060743 /* MessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397535CA280330BE00060743 /* MessageTableViewCell.swift */; };
+		397535CE280330F000060743 /* MessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 397535CD280330F000060743 /* MessageTableViewCell.xib */; };
+		397535D12803381400060743 /* MessageSideEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397535D02803381400060743 /* MessageSideEnum.swift */; };
+		397535D728033A1B00060743 /* UIView+ReuseIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397535D628033A1B00060743 /* UIView+ReuseIdentifier.swift */; };
+		397535D928033CA400060743 /* MessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 397535D828033CA400060743 /* MessageViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,11 @@
 		396232182803057B00B78A49 /* Ariadnext-technical-testUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Ariadnext-technical-testUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3962321C2803057B00B78A49 /* Ariadnext_technical_testUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ariadnext_technical_testUITests.swift; sourceTree = "<group>"; };
 		3962321E2803057B00B78A49 /* Ariadnext_technical_testUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ariadnext_technical_testUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		397535CA280330BE00060743 /* MessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewCell.swift; sourceTree = "<group>"; };
+		397535CD280330F000060743 /* MessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageTableViewCell.xib; sourceTree = "<group>"; };
+		397535D02803381400060743 /* MessageSideEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSideEnum.swift; sourceTree = "<group>"; };
+		397535D628033A1B00060743 /* UIView+ReuseIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ReuseIdentifier.swift"; sourceTree = "<group>"; };
+		397535D828033CA400060743 /* MessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +111,9 @@
 			children = (
 				3962322B2803174600B78A49 /* App */,
 				3962322D2803177700B78A49 /* Modules */,
+				397535DA28033DB700060743 /* ViewModels */,
+				397535CF280337F000060743 /* Enums */,
+				397535D5280339F800060743 /* Extensions */,
 				3962322C2803175700B78A49 /* Ressources */,
 			);
 			path = "Ariadnext-technical-test";
@@ -153,10 +166,44 @@
 		3962322E280317C900B78A49 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				397535CC280330C300060743 /* Message Cell */,
 				396232012803057A00B78A49 /* Home.storyboard */,
 				396231FF2803057A00B78A49 /* HomeViewController.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		397535CC280330C300060743 /* Message Cell */ = {
+			isa = PBXGroup;
+			children = (
+				397535CA280330BE00060743 /* MessageTableViewCell.swift */,
+				397535CD280330F000060743 /* MessageTableViewCell.xib */,
+			);
+			path = "Message Cell";
+			sourceTree = "<group>";
+		};
+		397535CF280337F000060743 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				397535D02803381400060743 /* MessageSideEnum.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		397535D5280339F800060743 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				397535D628033A1B00060743 /* UIView+ReuseIdentifier.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		397535DA28033DB700060743 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				397535D828033CA400060743 /* MessageViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -264,6 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				396232082803057A00B78A49 /* LaunchScreen.storyboard in Resources */,
+				397535CE280330F000060743 /* MessageTableViewCell.xib in Resources */,
 				396232052803057A00B78A49 /* Assets.xcassets in Resources */,
 				396232032803057A00B78A49 /* Home.storyboard in Resources */,
 			);
@@ -290,7 +338,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				397535D728033A1B00060743 /* UIView+ReuseIdentifier.swift in Sources */,
 				396232002803057A00B78A49 /* HomeViewController.swift in Sources */,
+				397535D12803381400060743 /* MessageSideEnum.swift in Sources */,
+				397535CB280330BE00060743 /* MessageTableViewCell.swift in Sources */,
+				397535D928033CA400060743 /* MessageViewModel.swift in Sources */,
 				396231FC2803057A00B78A49 /* AppDelegate.swift in Sources */,
 				396231FE2803057A00B78A49 /* SceneDelegate.swift in Sources */,
 			);
@@ -474,9 +526,10 @@
 				INFOPLIST_FILE = "Ariadnext-technical-test/Ressources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Home;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -502,9 +555,10 @@
 				INFOPLIST_FILE = "Ariadnext-technical-test/Ressources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Home;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
