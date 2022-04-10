@@ -22,7 +22,7 @@ class HomeViewController: UIViewController {
 	@IBOutlet private weak var messageText: UITextField!
 	
 	private var messages = [MessageViewModel]()
-	private var observers = Set<AnyCancellable>()
+	private var cancellable: AnyCancellable?
 	
 	var serverResponseManager: ServerResponseManager?
 	
@@ -66,22 +66,26 @@ class HomeViewController: UIViewController {
 	}
 	
 	@IBAction private func send() {
-		guard let text = messageText.text
+		guard let text = messageText.text,
+			  !text.isEmpty
 		else { return }
-		messages.append(MessageViewModel(with: text, sender: .client))
+		let message = MessageViewModel(with: text, sender: .client)
+		messages.append(message)
 		tableView.reloadData()
 		messageText.text = nil
-		getServerResponse()
+		getServerResponse(of: message)
 	}
 	
-	private func getServerResponse() {
-		serverResponseManager?.getResponse()
-		serverResponseManager?.serverResponse.sink { serverResponse in
+	private func getServerResponse(of message: MessageViewModel) {
+		serverResponseManager?.getResponse(of: message)
+		cancellable = serverResponseManager?.serverResponse
+			.receive(on: DispatchQueue.main)
+			.sink { [weak self] serverResponse in
 			guard let serverResponse = serverResponse
 			else { return }
-			self.messages.append(serverResponse)
-			self.tableView.reloadData()
-		}.store(in: &observers)
+			self?.messages.append(serverResponse)
+			self?.tableView.reloadData()
+		}
 	}
 }
 
